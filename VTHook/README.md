@@ -27,10 +27,11 @@ int main() {
     uintptr_t*& hiFunc = std::ref(VTExample[0]);
     
     vh::hook(reinterpret_cast<LPVOID*>(&hiFunc), hookHi, reinterpret_cast<LPVOID**>(&original));
-    printf("result: %i\n", example.hi(false)); // result: 123
+											   // hoooking!
+    printf("result: %i\n", example.hi(false)); // result: 129
     vh::unhook(reinterpret_cast<LPVOID*>(&hiFunc));
     
-                                               // hoooking!
-    printf("result: %i\n", example.hi(false)); // result: 129
+                                               
+    printf("result: %i\n", example.hi(false)); // result: 123
 }
 ```
